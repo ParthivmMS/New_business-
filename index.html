@@ -3,57 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>New Business AI</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>AI Tools Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #6366f1, #3b82f6);
+      color: white;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    header p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    section {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #2563eb;
+    }
+    .card p {
+      font-size: 1rem;
+      color: #374151;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #f3f4f6;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-  <!-- Navbar -->
-  <header class="flex justify-between items-center p-6 bg-white shadow">
-    <h1 class="text-2xl font-bold text-indigo-600">NewBusiness.AI</h1>
-    <nav>
-      <a href="#features" class="px-4 text-gray-700 hover:text-indigo-600">Features</a>
-      <a href="#pricing" class="px-4 text-gray-700 hover:text-indigo-600">Pricing</a>
-      <a href="#contact" class="px-4 text-gray-700 hover:text-indigo-600">Contact</a>
-    </nav>
+<body>
+  <header>
+    <h1>AI Tools Hub</h1>
+    <p>Discover simple AI-powered tools designed to save you time and boost productivity.</p>
   </header>
 
-  <!-- Hero Section -->
-  <section class="text-center py-20 bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
-    <h2 class="text-4xl md:text-5xl font-bold mb-4">Build Your AI-Powered Future</h2>
-    <p class="text-lg md:text-xl mb-6">The smartest way to launch your business idea, powered by AI.</p>
-    <a href="/tool" class="px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg shadow hover:bg-gray-100 transition">🚀 Try It Now</a>
-  </section>
-
-  <!-- Features -->
-  <section id="features" class="max-w-6xl mx-auto py-16 px-6 grid md:grid-cols-3 gap-8">
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h3 class="text-xl font-semibold mb-2">AI-Powered</h3>
-      <p>Generate insights, strategies, and solutions instantly with AI assistance.</p>
+  <section>
+    <div class="card">
+      <h2>Summarize Anything</h2>
+      <p>Upload text or documents and get concise, accurate summaries instantly.</p>
     </div>
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h3 class="text-xl font-semibold mb-2">Easy to Use</h3>
-      <p>No coding required. Just input your idea and watch the magic happen.</p>
+    <div class="card">
+      <h2>Smart Writing Assistant</h2>
+      <p>Improve your emails, reports, and posts with AI-powered writing suggestions.</p>
     </div>
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h3 class="text-xl font-semibold mb-2">Global Market</h3>
-      <p>Launch solutions that appeal to audiences worldwide.</p>
+    <div class="card">
+      <h2>More Tools Coming Soon</h2>
+      <p>We’re building a collection of powerful yet easy-to-use AI tools for everyday needs.</p>
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section id="pricing" class="py-16 bg-gray-100 text-center">
-    <h2 class="text-3xl font-bold mb-6">Simple Pricing</h2>
-    <p class="mb-10">Start free, upgrade when you’re ready.</p>
-    <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow">
-      <h3 class="text-2xl font-semibold mb-4">Free Plan</h3>
-      <p class="mb-4">Explore features and test your business idea.</p>
-      <a href="/tool" class="block px-6 py-3 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700">Get Started</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer id="contact" class="text-center py-8 bg-white border-t">
-    <p>&copy; 2025 NewBusiness.AI. All rights reserved.</p>
+  <footer>
+    © 2025 AI Tools Hub — All rights reserved.
   </footer>
 </body>
 </html>
