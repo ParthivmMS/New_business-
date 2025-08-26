@@ -1,88 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Tools Hub</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #f9fafb;
-      color: #111827;
-      line-height: 1.6;
-    }
-    header {
-      text-align: center;
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, #6366f1, #3b82f6);
-      color: white;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-    header p {
-      font-size: 1.25rem;
-      max-width: 600px;
-      margin: 0 auto;
-      opacity: 0.9;
-    }
-    section {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
-    .card {
-      background: white;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom: 2rem;
-    }
-    .card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #2563eb;
-    }
-    .card p {
-      font-size: 1rem;
-      color: #374151;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #f3f4f6;
-      color: #6b7280;
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>AI Tools Hub</h1>
-    <p>Discover simple AI-powered tools designed to save you time and boost productivity.</p>
-  </header>
+import { motion } from "framer-motion"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { Mail, ArrowRight } from "lucide-react";
 
-  <section>
-    <div class="card">
-      <h2>Summarize Anything</h2>
-      <p>Upload text or documents and get concise, accurate summaries instantly.</p>
-    </div>
-    <div class="card">
-      <h2>Smart Writing Assistant</h2>
-      <p>Improve your emails, reports, and posts with AI-powered writing suggestions.</p>
-    </div>
-    <div class="card">
-      <h2>More Tools Coming Soon</h2>
-      <p>We’re building a collection of powerful yet easy-to-use AI tools for everyday needs.</p>
+export default function LandingPage() { return ( <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 text-gray-900"> {/* Header */} <header className="flex justify-between items-center p-6 max-w-6xl mx-auto"> <h1 className="text-2xl font-bold text-indigo-600">VerdictForge</h1> <nav className="hidden md:flex gap-6 text-gray-700 font-medium"> <a href="#features">Features</a> <a href="#pricing">Pricing</a> <a href="#about">About</a> <a href="#contact">Contact</a> </nav> </header>
+
+{/* Hero Section */}
+  <section className="max-w-6xl mx-auto text-center py-24 px-6">
+    <motion.h2
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6"
+    >
+      Legal AI that saves your time
+    </motion.h2>
+    <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+      Upload judgments. Get precise summaries. Focus on strategy, not paperwork.
+    </p>
+    <Button className="px-6 py-3 text-lg rounded-xl shadow-lg bg-indigo-600 hover:bg-indigo-700 text-white">
+      Get Started
+    </Button>
+  </section>
+
+  {/* Features Section */}
+  <section id="features" className="max-w-6xl mx-auto py-20 px-6">
+    <h3 className="text-3xl font-bold text-center mb-12">Why VerdictForge?</h3>
+    <div className="grid md:grid-cols-3 gap-8">
+      {[
+        {
+          title: "AI-Powered Summaries",
+          desc: "Summarizes long legal judgments into clear points in seconds.",
+        },
+        {
+          title: "Built for Law Students & Lawyers",
+          desc: "Save hours of reading and focus on analysis.",
+        },
+        {
+          title: "Simple & Secure",
+          desc: "Upload and process documents safely with no complexity.",
+        },
+      ].map((f, i) => (
+        <Card key={i} className="rounded-2xl shadow-md">
+          <CardContent className="p-6">
+            <h4 className="text-xl font-semibold mb-2">{f.title}</h4>
+            <p className="text-gray-600">{f.desc}</p>
+          </CardContent>
+        </Card>
+      ))}
     </div>
   </section>
 
-  <footer>
-    © 2025 AI Tools Hub — All rights reserved.
+  {/* Pricing Section */}
+  <section id="pricing" className="bg-white py-20">
+    <div className="max-w-6xl mx-auto text-center px-6">
+      <h3 className="text-3xl font-bold mb-6">Simple Pricing</h3>
+      <p className="text-gray-600 mb-12">
+        Start free. Upgrade when you’re ready.
+      </p>
+      <div className="grid md:grid-cols-3 gap-8">
+        {[
+          { tier: "Free", price: "$0", desc: "Perfect for students" },
+          { tier: "Pro", price: "$9/mo", desc: "For lawyers & firms" },
+          { tier: "Enterprise", price: "Custom", desc: "For large organizations" },
+        ].map((p, i) => (
+          <Card key={i} className="rounded-2xl shadow-md border">
+            <CardContent className="p-6">
+              <h4 className="text-xl font-semibold mb-2">{p.tier}</h4>
+              <p className="text-3xl font-bold text-indigo-600 mb-2">{p.price}</p>
+              <p className="text-gray-600 mb-4">{p.desc}</p>
+              <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white">
+                Choose Plan
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* About Section */}
+  <section id="about" className="max-w-6xl mx-auto py-20 px-6 text-center">
+    <h3 className="text-3xl font-bold mb-6">About VerdictForge</h3>
+    <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+      Built by a law student in India, VerdictForge is designed to bridge the
+      gap between law and technology. Our mission is to make legal research
+      faster, easier, and accessible for everyone.
+    </p>
+  </section>
+
+  {/* Contact Section */}
+  <section id="contact" className="bg-gray-50 py-20">
+    <div className="max-w-4xl mx-auto text-center px-6">
+      <h3 className="text-3xl font-bold mb-6">Contact Us</h3>
+      <p className="text-gray-600 mb-6">Have questions? Get in touch.</p>
+      <a
+        href="mailto:parthiv@example.com"
+        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-700 shadow-md"
+      >
+        <Mail className="w-5 h-5" /> Email Us
+      </a>
+    </div>
+  </section>
+
+  {/* Footer */}
+  <footer className="bg-gray-900 text-gray-400 py-8 text-center">
+    <p>© {new Date().getFullYear()} VerdictForge. All rights reserved.</p>
   </footer>
-</body>
-</html>
+</div>
+
+); }
+
