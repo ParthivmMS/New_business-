@@ -1,0 +1,5 @@
+"scripts": {
+  "dev": "vite",      // if using Vite
+  "build": "vite build",
+  "preview": "vite preview"
+}
