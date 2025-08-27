@@ -1,99 +1,132 @@
-import { motion } from "framer-motion";
-import { Mail, ArrowRight } from "lucide-react";
+// src/landingpage.js
+
+import { useState } from "react";
 
 export default function LandingPage() {
+  const [active, setActive] = useState("home");
+
   return (
-    <div className="min-h-screen bg-white text-gray-900">
-      {/* Header */}
-      <header className="flex justify-between items-center p-6 shadow">
-        <h1 className="text-2xl font-bold">VerdictForge</h1>
-        <nav className="space-x-6">
-          <a href="#features" className="hover:text-blue-600">Features</a>
-          <a href="#pricing" className="hover:text-blue-600">Pricing</a>
-          <a href="#about" className="hover:text-blue-600">About</a>
-          <a href="#contact" className="hover:text-blue-600">Contact</a>
-        </nav>
-      </header>
+    <div className="font-sans text-gray-800">
+      {/* Navbar */}
+      <nav className="flex justify-between items-center px-6 py-4 shadow-md bg-white sticky top-0 z-50">
+        <h1 className="text-2xl font-bold text-blue-600">VerdictForge</h1>
+        <ul className="flex space-x-6">
+          <li>
+            <button onClick={() => setActive("home")}>Home</button>
+          </li>
+          <li>
+            <button onClick={() => setActive("about")}>About</button>
+          </li>
+          <li>
+            <button onClick={() => setActive("pricing")}>Pricing</button>
+          </li>
+          <li>
+            <button onClick={() => setActive("contact")}>Contact</button>
+          </li>
+        </ul>
+      </nav>
 
       {/* Hero Section */}
-      <section className="text-center py-20 px-4">
-        <motion.h2
-          className="text-4xl font-bold mb-4"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          Legal AI that saves your time
-        </motion.h2>
-        <p className="text-lg text-gray-600 mb-6">
-          Upload judgments. Get precise summaries. Focus on strategy, not paperwork.
-        </p>
-        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg flex items-center gap-2 mx-auto hover:bg-blue-700">
-          Get Started <ArrowRight size={18} />
-        </button>
-      </section>
+      {active === "home" && (
+        <section className="flex flex-col items-center justify-center text-center py-20 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+          <h2 className="text-5xl font-bold mb-4">AI-Powered Legal Summarizer</h2>
+          <p className="text-lg mb-6">
+            Save hours of reading—get precise, AI-generated legal judgment summaries.
+          </p>
+          <button className="px-6 py-3 bg-white text-blue-600 rounded-full font-semibold shadow-md hover:bg-gray-200">
+            Try for Free
+          </button>
+        </section>
+      )}
 
-      {/* Features */}
-      <section id="features" className="py-16 bg-gray-50 px-6">
-        <h3 className="text-3xl font-bold text-center mb-12">Why VerdictForge?</h3>
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {[
-            { title: "AI-Powered Summaries", desc: "Summarizes long legal judgments into clear points in seconds." },
-            { title: "Built for Law Students & Lawyers", desc: "Save hours of reading and focus on analysis." },
-            { title: "Simple & Secure", desc: "Upload and process documents safely with no complexity." },
-          ].map((f, i) => (
-            <div key={i} className="p-6 bg-white rounded-xl shadow hover:shadow-lg">
-              <h4 className="text-xl font-semibold mb-2">{f.title}</h4>
-              <p className="text-gray-600">{f.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* About Section */}
+      {active === "about" && (
+        <section className="px-6 py-16 text-center">
+          <h2 className="text-3xl font-bold mb-4">About VerdictForge</h2>
+          <p className="max-w-2xl mx-auto text-lg">
+            VerdictForge is built by a law student for law students, advocates, and
+            researchers. Our AI reduces hours of case law reading into minutes, giving
+            you clear and reliable case summaries.
+          </p>
+        </section>
+      )}
 
-      {/* Pricing */}
-      <section id="pricing" className="py-16 px-6 text-center">
-        <h3 className="text-3xl font-bold mb-12">Simple Pricing</h3>
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {[
-            { tier: "Free", price: "$0", desc: "Perfect for students" },
-            { tier: "Pro", price: "$9/mo", desc: "For lawyers & firms" },
-            { tier: "Enterprise", price: "Custom", desc: "For large organizations" },
-          ].map((p, i) => (
-            <div key={i} className="p-6 bg-white rounded-xl shadow border">
-              <h4 className="text-xl font-bold">{p.tier}</h4>
-              <p className="text-2xl font-semibold my-2">{p.price}</p>
-              <p className="text-gray-600 mb-4">{p.desc}</p>
-              <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                Choose Plan
+      {/* Pricing Section */}
+      {active === "pricing" && (
+        <section className="px-6 py-16 text-center bg-gray-100">
+          <h2 className="text-3xl font-bold mb-8">Pricing</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="p-6 bg-white shadow-md rounded-xl">
+              <h3 className="text-xl font-bold mb-2">Free</h3>
+              <p className="mb-4">₹0 / month</p>
+              <ul className="mb-6 text-sm">
+                <li>✔ 10 summaries / month</li>
+                <li>✔ Basic AI model</li>
+              </ul>
+              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg">
+                Get Started
               </button>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* About */}
-      <section id="about" className="py-16 px-6 max-w-3xl mx-auto text-center">
-        <h3 className="text-3xl font-bold mb-6">About VerdictForge</h3>
-        <p className="text-gray-600">
-          Built by a law student in India, VerdictForge is designed to bridge the gap between law and technology. 
-          Our mission is to make legal research faster, easier, and accessible for everyone.
-        </p>
-      </section>
+            <div className="p-6 bg-white shadow-md rounded-xl border-2 border-blue-600">
+              <h3 className="text-xl font-bold mb-2">Pro</h3>
+              <p className="mb-4">₹499 / month</p>
+              <ul className="mb-6 text-sm">
+                <li>✔ Unlimited summaries</li>
+                <li>✔ Advanced AI model</li>
+                <li>✔ Priority support</li>
+              </ul>
+              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg">
+                Subscribe
+              </button>
+            </div>
 
-      {/* Contact */}
-      <section id="contact" className="py-16 px-6 bg-gray-50 text-center">
-        <h3 className="text-3xl font-bold mb-6">Contact Us</h3>
-        <p className="mb-4">Have questions? Get in touch.</p>
-        <a
-          href="mailto:your-email@example.com"
-          className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700"
-        >
-          <Mail size={18} /> Email Us
-        </a>
-      </section>
+            <div className="p-6 bg-white shadow-md rounded-xl">
+              <h3 className="text-xl font-bold mb-2">Enterprise</h3>
+              <p className="mb-4">Custom</p>
+              <ul className="mb-6 text-sm">
+                <li>✔ API Access</li>
+                <li>✔ Team Accounts</li>
+                <li>✔ Custom Features</li>
+              </ul>
+              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg">
+                Contact Us
+              </button>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Contact Section */}
+      {active === "contact" && (
+        <section className="px-6 py-16 text-center">
+          <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
+          <p className="mb-6">We’d love to hear from you. Drop us a message.</p>
+          <form className="max-w-md mx-auto">
+            <input
+              type="text"
+              placeholder="Your Name"
+              className="w-full mb-4 px-4 py-2 border rounded-lg"
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              className="w-full mb-4 px-4 py-2 border rounded-lg"
+            />
+            <textarea
+              placeholder="Your Message"
+              className="w-full mb-4 px-4 py-2 border rounded-lg"
+            />
+            <button className="px-6 py-2 bg-blue-600 text-white rounded-lg">
+              Send
+            </button>
+          </form>
+        </section>
+      )}
 
       {/* Footer */}
-      <footer className="text-center py-6 border-t mt-10 text-gray-600">
-        © {new Date().getFullYear()} VerdictForge. All rights reserved.
+      <footer className="text-center py-6 bg-gray-800 text-white mt-10">
+        <p>© {new Date().getFullYear()} VerdictForge. All rights reserved.</p>
       </footer>
     </div>
   );
