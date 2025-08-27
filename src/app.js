@@ -1,7 +1,6 @@
-import LandingPage from "./LandingPage";
+// pages/_app.js
+import "../styles/globals.css";
 
-function App() {
-  return <LandingPage />;
+export default function App({ Component, pageProps }) {
+  return <Component {...pageProps} />;
 }
-
-export default App;
